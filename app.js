@@ -24,7 +24,7 @@ async function getSong() {
    
     try {
 
-        const response = await fetch("/song/");
+        const response = await fetch("https://github.com/IsmailofficialGithub/Spotify-Clone-Music-app/tree/main/song");
 
         if (!response.ok) throw new Error("Failed to fetch songs.");
 
