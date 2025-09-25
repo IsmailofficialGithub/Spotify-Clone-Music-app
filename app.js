@@ -24,7 +24,7 @@ async function getSong() {
    
     try {
 
-        const response = await fetch("https://github.com/IsmailofficialGithub/Spotify-Clone-Music-app/tree/main/song");
+        const response = await fetch("./song");
 
         if (!response.ok) throw new Error("Failed to fetch songs.");
 
@@ -53,12 +53,10 @@ const playMusic = (track, pause = false) => {
 
 
     currentSong.play();
-    document.querySelector(".songinfo").innerHTML = decodeURI(track);
+    let name=decodeURI(track).split("")
+    name = name.slice(0, 17).join("") + "..."    
+    document.querySelector(".songinfo").innerHTML = decodeURI(name);
     document.querySelector(".songtime").innerHTML = "00:00/00:00";
-
-
-    
-
 }
 
 
@@ -88,6 +86,7 @@ async function main() {
         e.addEventListener("click", element => {
             // console.log(e.querySelector(".info").firstElementChild.innerHTML);
             playMusic(e.querySelector(".info").firstElementChild.innerHTML);
+             play.src = "images/pause.svg";
     
         })
     })
@@ -148,12 +147,13 @@ previous.addEventListener("click", () => {
 //add event listener on next button
 next.addEventListener("click", () => {
     currentSong.pause()
-    // console.log("next click")
 
     let index = songs.indexOf(currentSong.src.split("/").slice(-1)[0])
     if ((index + 1) < songs.length) {
         playMusic(songs[index + 1]);
     }
+      play.src = "images/pause.svg";
+
 })
 //add event listener on volume
 document.querySelector(".range").getElementsByTagName("input")[0].addEventListener("change", (e) => {

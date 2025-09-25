@@ -30,6 +30,11 @@ body {
 .logo .cross {
     cursor: pointer;
 }
+@media screen and (min-width: 1400px) {
+   .logo .cross {
+    display: none;
+   }
+}
 
 .hamburger {
     display: none;
@@ -143,7 +148,7 @@ body {
     gap: 10px;
     flex-wrap: wrap;
     margin: 30px;
-
+    justify-content: center;
     overflow-y: auto;
 }
 
@@ -289,6 +294,11 @@ body {
 }
 
 /* =======================for mobile screen======================== */
+@media (max-width:664px) {
+       .seekbar-inner {
+        flex-direction: row;
+    }
+}
 @media (max-width:1400px) {
     .left {
         background-color: black;
@@ -356,8 +366,8 @@ body {
     }
 
     .seekbar-inner {
-        flex-direction: column;
-        gap: 23px;
+        /* flex-direction: column; */
+        gap: 5px;
         align-items: center;
     }
 
@@ -382,6 +392,12 @@ body {
     .play {
         top: 58%;
         left: 80%;
+    }
+    .seekbar-inner{
+        flex-direction: column;
+    }
+    .timevol{
+        flex-direction: row-reverse;
     }
 }
 
